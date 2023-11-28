@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import '../styles/Login.css'
-import { useLocation } from "react-router-dom";
+import { AuthService } from "../services/AuthService";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [role, setRole] = useState('')
-    const location = useLocation()
-
-    const isLoginPage = location.pathname==='/login'
+    const navigate = useNavigate();
     
-    const handleSubmit = (event) => {
-        
+    const authService = new AuthService();
+
+    const handleSubmit = async(event) => {
+        event.preventDefault()
+        const user = {email,password,role}
+        try{
+            var response = await authService.login(user)
+            localStorage.setItem('token', response);
+            console.log(response)
+            navigate('/');
+            window.location.replace('');
+        }catch(err){
+            alert("Error Iniciando Sesión")
+        }
     }
     
     return(

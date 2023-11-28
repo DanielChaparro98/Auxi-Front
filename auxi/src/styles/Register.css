@@ -31,6 +31,10 @@ select {
   position: relative;
   top: 80px;
 }
+select option {
+    background-color: #f0f0f0; /* Cambia el color de fondo de las opciones */
+    color: #333; /* Cambia el color del texto de las opciones */
+}
 
 #btnRegister {
     background-color: #03a9f4;
@@ -45,7 +49,26 @@ select {
     left: 50px;
   }
   
-button:hover {
-    background-color: #0288d1;
+#btnRegister:hover {
+    background-color: #0d8cd1;
 }
+
+#email, #password,#slcTipo{
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    border-bottom: 1px solid #ffffff; /* Línea inferior */
+    color: #ffffff; /* Color del texto */
+    padding: 20px; /* Espaciado interno para mejorar la apariencia */
+    width: 150%; /* Ancho al 100% para ocupar todo el contenedor disponible */
+    box-sizing: border-box; /* Incluye el padding y el border en el ancho total */
+    font-size: 16px; /* Tamaño del texto */
+    outline: none;
+    position: relative;
+    right: 60px;
+  }
+
+  #email,#password,#slcTipo::placeholder {
+    color: #e6f1f7; /* Color del texto de marcador de posición */
+    opacity: 0.7; /* Opacidad del texto de marcador de posición */
+  }
 

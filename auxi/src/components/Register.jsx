@@ -27,9 +27,13 @@ function Register() {
 
   return(
     <div className="form-container">
+        <br />
+        <br />
+        <br />
+        <br />
       <h2>Formulario de Registro</h2>
       <form onSubmit={handleSubmit}>
-        <div className='form-gorup'>
+        {/* <div className='form-gorup'>
           <input
             type="text"
             name="nombre"
@@ -47,10 +51,11 @@ function Register() {
             value={formulario.apellido}
             onChange={handleChange}
           />
-        </div>
+        </div> */}
         <br />
         <div className='form-gorup'>
           <input
+            id='email'
             type="email"
             name="email"
             placeholder='Email'
@@ -58,8 +63,7 @@ function Register() {
             onChange={handleChange}
           />
         </div>
-        <br />
-        <div className='form-gorup'>
+        {/* <div className='form-gorup'>
           <input
             type="tel"
             name="telefono"
@@ -67,10 +71,11 @@ function Register() {
             value={formulario.telefono}
             onChange={handleChange}
           />
-        </div>
+        </div> */}
         <br />
         <div className='form-gorup'>
           <input
+            id='password'
             type="password"
             name="password"
             placeholder='Contraseña'
@@ -81,6 +86,7 @@ function Register() {
         <br />
         <div className='form-gorup'>
           <select
+            id='slcTipo'
             name="tipoUsuario"
             value={formulario.tipoUsuario}
             onChange={handleChange}

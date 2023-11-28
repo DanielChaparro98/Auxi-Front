@@ -37,7 +37,6 @@
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
   }
@@ -72,6 +71,16 @@
   #email,#password::placeholder {
     color: #e6f1f7; /* Color del texto de marcador de posición */
     opacity: 0.7; /* Opacidad del texto de marcador de posición */
+  }
+
+ input[type="text"]{
+    user-select: none;
+    caret-color: transparent;
+  }
+
+ input [type="text"]:focus{
+    user-select: auto;
+    caret-color: auto;
   }
   
   

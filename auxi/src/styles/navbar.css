@@ -19,7 +19,7 @@
 
 .image{
     position: relative;
-    bottom: 10px; 
+    bottom: 15px; 
 }
 
 .nav-bar ul{
@@ -29,7 +29,7 @@
 .nav-bar ul li a{
     display: block;
     color: #fffefe;
-    font-size: 18px;
+    font-size: 15px;
     padding: 10px 25px;
     border-radius: 15px;
     transition: 0.2s;
@@ -41,7 +41,7 @@
 .buttonLogin{
     display: block;
     padding: 8px 16px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;

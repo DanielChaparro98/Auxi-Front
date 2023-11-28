@@ -1,15 +1,15 @@
 import axios from 'axios'
 
-const baseUrl = "http://localhost:8080/"
+const token = localStorage.getItem('token');
+axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : ''
 
-export class  AuthService{
-
+export class AuthService{
     login(user){
-        return axios.post(this.baseUrl+"login",user).then(res =>res.data)
+        return axios.post("http://localhost:8080/auth/"+"login",user).then(res =>res.data)
     }
 
     register(user){
-        return axios.post(this.baseUrl+"register",user).then(res => res.data)
+        return axios.post("http://localhost:8080/auth/"+"register",user).then(res => res.data)
     }
 
 }
