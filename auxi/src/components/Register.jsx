@@ -1,15 +1,18 @@
 import React,{ useState } from 'react';
 import '../styles/Register.css'
+import { AuthService } from "../services/AuthService";
+import { useNavigate } from 'react-router-dom';
+
 
 function Register() {
     const [formulario, setFormulario] = useState({
-        nombre: '',
-        apellido: '',
         email: '',
-        telefono: '',
         password: '',
-        tipoUsuario: 'cliente', // Valor predeterminado para la lista desplegable
+        role: 'client', // Valor predeterminado para la lista desplegable
       });
+
+      const authService = new AuthService();
+      const navigate = useNavigate();
 
       const handleChange = (event) => {
         const { name, value } = event.target;
@@ -19,10 +22,12 @@ function Register() {
         }));
       };
 
-      const handleSubmit = (event) => {
+      const handleSubmit = async(event) => {
         event.preventDefault();
-        // Aquí puedes manejar la lógica de envío del formulario
+        const response = await authService.register(formulario)
         console.log('Formulario enviado:', formulario);
+        navigate('/');
+        window.location.replace('');
       };
 
   return(
@@ -87,13 +92,13 @@ function Register() {
         <div className='form-gorup'>
           <select
             id='slcTipo'
-            name="tipoUsuario"
-            value={formulario.tipoUsuario}
+            name="role"
+            value={formulario.role}
             onChange={handleChange}
           > 
             <option value="" disabled selected hidden>Selecciona un tipo de usuario</option>   
-            <option value="cliente">Cliente</option>
-            <option value="profesional">Profesional</option>
+            <option value="client">Cliente</option>
+            <option value="professional">Profesional</option>
           </select>
         </div>
 

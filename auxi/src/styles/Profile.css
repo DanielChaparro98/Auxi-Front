@@ -1,0 +1,54 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    background: linear-gradient(to bottom right, #0c123d, #03a9f4);
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+
+.number{
+    position: relative;
+    top: 40px;
+    right: 200px;
+    width: 20%;
+}
+
+.name{
+    position: relative;
+    top: 40px;
+    right: 170px;
+    width: 20%;
+}
+
+.phone{
+    position: relative;
+    top: 40px;
+    right: 140px;
+    width: 20%;
+}
+
+input{
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    border-bottom: 1px solid #ffffff; /* Línea inferior */
+    color: #ffffff; /* Color del texto */
+    padding: 20px; /* Espaciado interno para mejorar la apariencia */
+    width: 150%; /* Ancho al 100% para ocupar todo el contenedor disponible */
+    box-sizing: border-box; /* Incluye el padding y el border en el ancho total */
+    font-size: 16px; /* Tamaño del texto */
+    outline: none;
+    position: relative;
+    right: 60px;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    position: relative;
+    top: 80px;
+  }
+
+input::placeholder {
+    color: #e6f1f7; /* Color del texto de marcador de posición */
+    opacity: 0.7; /* Opacidad del texto de marcador de posición */
+  }

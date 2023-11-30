@@ -17,7 +17,8 @@ function Login() {
         const user = {email,password,role}
         try{
             var response = await authService.login(user)
-            localStorage.setItem('token', response);
+            console.log(response)
+            localStorage.setItem('token', JSON.stringify(response));
             console.log(response)
             navigate('/');
             window.location.replace('');
