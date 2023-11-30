@@ -75,7 +75,6 @@ function Profile(){
         <div>
 
       <form onSubmit={handleSubmit}>
-        {/* Agrega los campos del formulario */}
         <div className='profile-container'>
         <h2>Creación de Perfil</h2>
         <div className='number'>
@@ -103,7 +102,7 @@ function Profile(){
         </div>
 
         </div>
-        {/* <label>Nombre de la experiencia:
+         <label>Nombre de la experiencia:
           <input
             type="text"
             name="nombre"
@@ -114,7 +113,7 @@ function Profile(){
 
         <button type="submit">Guardar</button>
       </form>
-
+      {/*
       <h2>Datos en la tabla</h2>
       <table>
         <thead>
