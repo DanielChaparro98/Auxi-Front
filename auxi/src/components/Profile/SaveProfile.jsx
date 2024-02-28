@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { ExperienceService } from "../services/ExperienceService";
+import { ExperienceService } from "../../services/ExperienceService";
 import { useJwt } from "react-jwt";
 import '../styles/Profile.css'
 
-const token = localStorage.getItem('token');
+const token = sessionStorage.getItem('token');
 
 function Profile(){
 
-    const { decodedToken, isExpired } = useJwt(token);
-    console.log(decodedToken)
+    const { decodeToken, isExpired } = useJwt(token);
+    console.log(decodeToken)
 
     const [profile,setProfile] =useState({
         number:'',
@@ -31,8 +31,8 @@ function Profile(){
     },[])
 
     async function LoadExperiences(){
-        if(decodedToken != null){
-            const response = experienceService.listFilter(decodedToken.sub)
+        if(decodeToken != null){
+            const response = experienceService.listFilter(decodeToken.sub)
             setExperiences(response.data)
             console.log(response.data)
         }

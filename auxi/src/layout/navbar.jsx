@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
 
 const Navbar = () => {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     const handleLogout = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
