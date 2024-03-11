@@ -6,7 +6,7 @@ const Navbar = () => {
     const token = sessionStorage.getItem('token');
     const handleLogout = (e) => {
         e.preventDefault();
-        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
         window.location.replace('');
       };
     

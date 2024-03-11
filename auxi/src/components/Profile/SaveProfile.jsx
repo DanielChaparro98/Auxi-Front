@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ExperienceService } from "../../services/ExperienceService";
 import { useJwt } from "react-jwt";
-import '../styles/Profile.css'
+import '../../styles/Profile.css'
+
 
 const token = sessionStorage.getItem('token');
 
