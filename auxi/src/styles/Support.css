@@ -1,0 +1,10 @@
+.support-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150vh;
+    background: linear-gradient(to bottom right, #0c123d, #03a9f4);
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }

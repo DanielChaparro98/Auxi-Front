@@ -35,12 +35,73 @@
 }
 
 .calendar{
-  left: 20%;
+  top: 10%;
+  left: 14%;
+  width: 70%;
+}
+
+
+.calendarDos{
+  top: 20%;
+  left: 14%;
+  width: 70%;
+}
+
+input{
+  top: 12%;
+  left: 2%;
 }
 
 #save{
-  top:30%;
-  right: 40%;
+  top: 15%;
+  left: 10%;
+}
+
+.timeStart{
+  top: 13%;
+  left: 14%;
+  width: 29%;
+}
+
+.timeFinal{
+  top: 1.2%;
+  left: 55%;
+  width: 29%;
+}
+
+#nameLabel{
+  position: relative;
+  top: -3%;
+  left: 14.5%;
+  font-weight: bold;
+}
+
+#descriptionLabel{
+  position: relative;
+  top: 3.5%;
+  left: 14.5%;
+  font-weight: bold;
+}
+
+#dateLabel{
+  position: relative;
+  top: 9%;
+  left: 14.5%;
+  font-weight: bold;
+}
+
+#timeStartLabel{
+  position: relative;
+  top: 12%;
+  left: 14.5%;
+  font-weight: bold;
+}
+
+#timeFinalLabel{
+  position: relative;
+  top: 0.1%;
+  left: 55%;
+  font-weight: bold;
 }
 
 

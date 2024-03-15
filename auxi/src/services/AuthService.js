@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const token = localStorage.getItem('token');
+const token = sessionStorage.getItem('token');
 axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : ''
 
 export class AuthService{

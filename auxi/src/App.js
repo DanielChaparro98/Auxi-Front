@@ -12,8 +12,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Navbar from './layout/navbar';
-import Profile from './components/Profile/SaveProfile';
-import SaveOffer from './components/Offer/SaveOffer';
+import Profile from './components/profile/SaveProfile';
+import SaveOffer from './components/offer/SaveOffer';
+import SaveSupport from './components/support/SaveSupport';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path='/save_offer' element={<SaveOffer />} />
+          <Route path='/save_support' element={<SaveSupport />} />
         </Routes>
     </Router>
   );
