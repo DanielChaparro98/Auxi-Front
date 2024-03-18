@@ -133,9 +133,6 @@ function SaveOffer(){
         email: JSON.parse(email)
     })
 
-
-    //console.log(dayjs.utc().local().format()  )
-
     const handleChange = (e) =>{
         const { name, value } = e.target;
         console.log(name)
@@ -146,14 +143,9 @@ function SaveOffer(){
         }));
     };
 
-    const originalTimezone = offer.start_time;
-    //console.log(originalTimezone)
-
     const handleStartTimeChange = (time) =>{
       const newTimeString = time.toISOString()
       console.log(newTimeString)
-      //const timeOnly = newTimeString.substring(11,19)
-      //console.log(timeOnly)
       const utcTime = dayjs.utc(newTimeString).local().format('HH:mm:ss');
       console.log(utcTime)
       setOffer(prevOffer => ({
@@ -166,8 +158,6 @@ function SaveOffer(){
     const handleFinalTimeChange = (time) =>{
       const newTimeString = time.toISOString()
       console.log(newTimeString)
-      //const timeOnly = newTimeString.substring(11,19)
-      //console.log(timeOnly)
       const utcTimeFinal = dayjs.utc(newTimeString).local().format('HH:mm:ss');
       setOffer(prevOffer => ({
         ...prevOffer,
