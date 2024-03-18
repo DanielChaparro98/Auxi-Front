@@ -19,6 +19,8 @@ function Login() {
             var response = await authService.login(user)
             console.log(response)
             sessionStorage.setItem('token', JSON.stringify(response));
+            sessionStorage.setItem('email', JSON.stringify(email));
+            console.log('correo'+email)
             console.log(response)
             navigate('/');
             window.location.replace('');
@@ -32,7 +34,6 @@ function Login() {
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          {/* <label htmlFor="email">email:</label> */}
           <input
             type="text"
             id="email"
@@ -43,7 +44,6 @@ function Login() {
         </div>
 
         <div className="form-group">
-          {/* <label htmlFor="password">Contraseña:</label> */}
           <input
             type="password"
             id="password"

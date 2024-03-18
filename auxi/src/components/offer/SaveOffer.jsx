@@ -1,25 +1,29 @@
 import { TextField,Box } from "@mui/material";
 import React,{ useEffect, useState, useRef }  from "react";
 import { useJwt } from "react-jwt";
-import { Calendar } from 'primereact/calendar';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import '../../styles/Offer.css'
-import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
 import dayjs from "dayjs";
+import utc from 'dayjs/plugin/utc';
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { TimeField } from '@mui/x-date-pickers/TimeField';
+import { OfferService } from "../../services/OfferService";
+import { off } from "process";
+
+
+
 
 const token = sessionStorage.getItem('token')
+const email = sessionStorage.getItem('email')
+
 
 function SaveOffer(){
-
-    var time = new Date()
 
     const theme = createTheme({
         components:{
@@ -115,27 +119,84 @@ function SaveOffer(){
     const{ decodeToken, isExpired} = useJwt('token')
     console.log(decodeToken)
     const [start, setStart] = useState(new Date())
-    
+    const offerService =  new OfferService();
+    const utc = require('dayjs/plugin/utc')
+    dayjs.extend(utc)
+
     const[offer,setOffer] = useState({
-        id:'',
         name: '',
         description:'',
-        state:'',
-        date: new Date(),
-        timeBegin: '',
-        timeFinal: ''
+        state:'nuevo',
+        date: React.useState(dayjs('2022-04-17')),
+        start_time: React.useState(dayjs('2022-04-17T15:30')),
+        final_time: React.useState(dayjs('2022-04-17T15:30')),
+        email: JSON.parse(email)
     })
+
+
+    //console.log(dayjs.utc().local().format()  )
 
     const handleChange = (e) =>{
         const { name, value } = e.target;
+        console.log(name)
+        console.log(value)
         setOffer((prevData) => ({
             ...prevData,
             [name]: value
         }));
     };
 
+    const originalTimezone = offer.start_time;
+    //console.log(originalTimezone)
+
+    const handleStartTimeChange = (time) =>{
+      const newTimeString = time.toISOString()
+      console.log(newTimeString)
+      //const timeOnly = newTimeString.substring(11,19)
+      //console.log(timeOnly)
+      const utcTime = dayjs.utc(newTimeString).local().format('HH:mm:ss');
+      console.log(utcTime)
+      setOffer(prevOffer => ({
+        ...prevOffer,
+        start_time:utcTime
+      }))
+      console.log('oferta '+offer.start_time)
+    }
+
+    const handleFinalTimeChange = (time) =>{
+      const newTimeString = time.toISOString()
+      console.log(newTimeString)
+      //const timeOnly = newTimeString.substring(11,19)
+      //console.log(timeOnly)
+      const utcTimeFinal = dayjs.utc(newTimeString).local().format('HH:mm:ss');
+      setOffer(prevOffer => ({
+        ...prevOffer,
+        final_time:utcTimeFinal
+      }))
+      console.log(offer.final_time)
+    }
+
+    const handleDateChange = (newDateTime) =>{
+      const newDateString = newDateTime.toISOString()
+      console.log(newDateString)
+      const dateOnly = newDateString.substring(0, 10);
+      console.log(dateOnly)
+
+      setOffer(prevOffer => ({
+        ...prevOffer,
+        date:dateOnly
+      }))
+      console.log(offer.date)
+    }
+   
+    const handleSubmit = async(event)=>{
+      event.preventDefault();
+      const response = await offerService.saveOffer(JSON.stringify(offer))
+      console.log(response)
+    }
+
     return (
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="offer-container">
 
             <CssBaseline />
@@ -149,6 +210,7 @@ function SaveOffer(){
             <TextField
             id="standard-multiline-flexible"
             className="name"
+            name="name"
             label=""
             multiline
             variant="outlined"
@@ -163,35 +225,31 @@ function SaveOffer(){
             id="standard-multiline-static"
             className="description"
             label=""
+            name="description"
             multiline
             rows={4}
             variant="outlined"
             onChange={handleChange}
             />
 
-            {/* <label htmlFor="time24">Time / 24h</label> */}
-            {/* <Calendar id="time24" className="calendar" value={start} onChange={(e) => setStart(e.value)} showTime showSeconds />
-            <Calendar id="time24" className="calendar" value={start} onChange={(e) => setStart(e.value)} showTime showSeconds /> */}
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider dateAdapter={AdapterDayjs} >
             <div id="dateLabel">
               <label>Fecha disponibilidad del servicio</label>
             </div>
-            <DesktopDatePicker className="calendar" format="DD-MM-YYYY" defaultValue={dayjs('2022-04-17')} onChange={handleChange}/>
+            <DesktopDatePicker className="calendar" format="DD-MM-YYYY" defaultValue={dayjs('2022-04-17')} onChange={handleDateChange}/>
             <div id="timeStartLabel">
               <label>Hora de Inicio</label>
             </div>
-            <TimeField  className="timeStart" defaultValue={dayjs('2022-04-17T15:30')} onChange={handleChange}/>
+            <TimeField  className="timeStart" format="h:mm A" defaultValue={dayjs('2022-04-17T15:30')} onChange={handleStartTimeChange}/>
             <div id="timeFinalLabel">
               <label>Hora de Fin</label>
             </div>
-            <TimeField  className="timeFinal" defaultValue={dayjs('2022-04-17T15:30')} onChange={handleChange}/>
-            {/* <MobileDateTimePicker className="calendar" defaultValue={dayjs('2022-04-17T15:30')} />
-            <MobileDateTimePicker className="calendarDos" defaultValue={dayjs('2022-04-17T15:30')} /> */}
-            
+            <TimeField  className="timeFinal" defaultValue={dayjs('2022-04-17T15:30')} onChange={handleFinalTimeChange}/>
+           
             </LocalizationProvider>
             </ThemeProvider>
 
-            <Button id="save" variant="contained">Guardar</Button>
+            <Button id="save" type="submit" variant="contained">Guardar</Button>
         </Box>
         </Container>
           
