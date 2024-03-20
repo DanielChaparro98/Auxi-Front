@@ -14,7 +14,6 @@ import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { TimeField } from '@mui/x-date-pickers/TimeField';
 import { OfferService } from "../../services/OfferService";
-import { off } from "process";
 
 
 
@@ -189,7 +188,7 @@ function SaveOffer(){
       <form onSubmit={handleSubmit}>
         <div className="offer-container">
 
-            <CssBaseline />
+        <CssBaseline />
         <Container maxWidth="sm">
         <Box sx={{ bgcolor: 'rgba(255, 255, 255, 0.2)', height: '125%', width: '100%'}} >
         <h2 className="title">Crea tu Oferta</h2>

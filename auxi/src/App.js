@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/save_profile" element={<Profile />} />
           <Route path='/save_offer' element={<SaveOffer />} />
           <Route path='/save_support' element={<SaveSupport />} />
         </Routes>

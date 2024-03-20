@@ -1,54 +1,124 @@
 .profile-container {
-    display: flex;
-    justify-content: center;
-    height: 500px;
-    background: linear-gradient(to bottom right, #0c123d, #03a9f4);
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
-
-.number{
-    position: relative;
-    top: 40px;
-    right: 200px;
-    width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150vh;
+  background: linear-gradient(to bottom right, #0c123d, #03a9f4);
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
 
-.name{
-    position: relative;
-    top: 40px;
-    right: 170px;
-    width: 20%;
+.profile{
+  font-size: 40px; 
+  font-weight: bold; 
+  color: #ffffff; 
+  text-align: center; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  margin-bottom: 20px; 
+  position: relative;
+  top: -20%;
+  right: 40%;
 }
 
-.phone{
-    position: relative;
-    top: 40px;
-    right: 140px;
-    width: 20%;
+.box-profile{
+  position: relative;
+  bottom: 20%;
+  border-radius: 5px;
 }
 
-input{
-    background-color: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    border-bottom: 1px solid #ffffff; /* Línea inferior */
-    color: #ffffff; /* Color del texto */
-    padding: 20px; /* Espaciado interno para mejorar la apariencia */
-    width: 150%; /* Ancho al 100% para ocupar todo el contenedor disponible */
-    box-sizing: border-box; /* Incluye el padding y el border en el ancho total */
-    font-size: 16px; /* Tamaño del texto */
-    outline: none;
-    position: relative;
-    right: 60px;
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    position: relative;
-    top: 80px;
-  }
+.nameProfile{
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 25%;
+}
 
-input::placeholder {
-    color: #e6f1f7; /* Color del texto de marcador de posición */
-    opacity: 0.7; /* Opacidad del texto de marcador de posición */
-  }
+.numberProfile{
+  position: absolute;
+  bottom: 6%;
+  left: 35%;
+  width: 25%;
+}
+
+.containerProfile{
+  width: 10%;
+}
+
+.studyTypeSelect{
+  position: absolute;
+  bottom: 33.5%;
+  left: 65%;
+  height: 19%;
+  width: 25%;
+}
+
+.workingHourSelect{
+  position: absolute;
+  width: 25%;
+  height: 19%;
+  bottom: 20%;
+  left: 5%;
+}
+
+.workingHourSelectTwo{
+  position: absolute;
+  width: 25%;
+  height: 19%;
+  bottom: 58%;
+  left: 35%;
+}
+
+.zoneProfile{
+  position: absolute;
+  width: 25%;
+  height: 19%;
+  bottom: 85%;
+  left: 65%;
+}
+
+#nameLabelProfile{
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-weight: bold;
+}
+
+#phoneLabelProfile{
+  position: relative;
+  bottom: 8.5%;
+  left: 35%;
+  font-weight: bold;
+}
+
+#studyTypeLabel{
+  position: relative;
+  bottom: 35%;
+  left: 65%;
+  font-weight: bold;
+}
+
+#workingHourLabel{
+  position: relative;
+  bottom: 23%;
+  left: 5%;
+  width: 150%;
+  font-weight: bold;
+}
+
+#separatorLabel{
+  position: relative;
+  bottom: 50%;
+  left: 25%;
+  width: 15%;
+  font-weight: bold;
+}
+
+#zoneLabel{
+  position: relative;
+  bottom: 87.5%;
+  left: 65%;
+  width: 25%;
+  font-weight: bold;
+}
